@@ -2,7 +2,7 @@
 
 This project is a skeleton application used to create [Essential JS 2](https://www.syncfusion.com/products/essential-js2) web application.
 
-The application contains Essential JS 2 button component for preview and all common settings are preconfigured.
+>This application uses the latest version of the [webpack-cli](https://webpack.js.org/api/cli/#commands). It requires node `v14.15.0` or higher.
 
 ## Getting Started
 
@@ -57,9 +57,9 @@ If JDK is not installed in your local machine, you can download it from [here](h
 
 ## Running
 
-The application is configured with `browser-sync`, so it will serve the web application in your default browser.
+The application is configured with [webpack-dev-server](https://webpack.js.org/configuration/dev-server/#devserver), so it will serve the web application in your default browser.
 
-We used `SystemJS` for module loading.
+We have used [Webpack](https://github.com/webpack/webpack) for module loading.
 
 You can use the below npm script to run the web application.
 
