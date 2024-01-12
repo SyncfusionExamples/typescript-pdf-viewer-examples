@@ -1,8 +1,8 @@
 import { PdfViewer, Toolbar, Magnification, Navigation, Annotation, LinkAnnotation, 
-         ThumbnailView, BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner} from '@syncfusion/ej2-pdfviewer';
+    ThumbnailView, BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner} from '@syncfusion/ej2-pdfviewer';
 
 PdfViewer.Inject( Toolbar, Magnification, Navigation, Annotation, LinkAnnotation, ThumbnailView, 
-                  BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner);
+             BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner);
 
 let pdfviewer: PdfViewer = new PdfViewer();
 // Replace the "localhost:44396" with the actual URL of your server
