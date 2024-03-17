@@ -1,18 +1,16 @@
-import { PdfViewer, Toolbar, Magnification, Navigation, Annotation, LinkAnnotation, ThumbnailView, BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner} from '@syncfusion/ej2-pdfviewer';
+import { PdfViewer, Toolbar, Magnification, Navigation, Annotation, LinkAnnotation, ThumbnailView, BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner, PageOrganizer} from '@syncfusion/ej2-pdfviewer';
 import { MenuItemModel } from '@syncfusion/ej2-navigations';
 import { CheckBox, ChangeEventArgs } from '@syncfusion/ej2-buttons';
-
-PdfViewer.Inject(Toolbar, Magnification, Navigation, Annotation, LinkAnnotation, ThumbnailView, BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner);
+PdfViewer.Inject(Toolbar, Magnification, Navigation, Annotation, LinkAnnotation, ThumbnailView, BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner, PageOrganizer);
 
 let pdfviewer: PdfViewer = new PdfViewer();
 pdfviewer.documentPath = "https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf";
 pdfviewer.resourceUrl = "https://cdn.syncfusion.com/ej2/23.1.43/dist/ej2-pdfviewer-lib";
-
 var menuItems: MenuItemModel[] = [
     {
         text: 'Search In Google',
         id: 'search_in_google',
-        iconCss: 'e-icons e-de-ctnr-find'
+        iconCss: 'e-icons e-search'
     },
     {
         text: 'Lock Annotation',
@@ -35,8 +33,6 @@ var menuItems: MenuItemModel[] = [
         id: 'read_only_false'
     },
 ];
-
-
 pdfviewer.appendTo('#PdfViewer');
 
 pdfviewer.documentLoad = function (args: any) {
@@ -107,26 +103,24 @@ pdfviewer.customContextMenuBeforeOpen = function (args: any) {
 };
 
 function lockAnnotations(args: any) {
-    var selectedAnnotations: any = pdfviewer.selectedItems.annotations;
-    for (var i = 0; i < selectedAnnotations.length; i++) {
-        var annotation = selectedAnnotations[i];
-        if (annotation && annotation.annotationSettings) {
-            annotation.annotationSettings.isLock = true;
-            pdfviewer.annotationModule.editAnnotation(annotation);
-            args.cancel = false;
+    for (var i = 0; i < pdfviewer.annotationCollection.length; i++) {
+        if (pdfviewer.annotationCollection[i].uniqueKey === pdfviewer.selectedItems.annotations[0].id) {
+            pdfviewer.annotationCollection[i].annotationSettings.isLock = true;
+            pdfviewer.annotationCollection[i].isCommentLock = true;
+            pdfviewer.annotation.editAnnotation(pdfviewer.annotationCollection[i]);
         }
+        args.cancel = false;
     }
 }
 
 function unlockAnnotations(args: any) {
-    var selectedAnnotations: any = pdfviewer.selectedItems.annotations;
-    for (var i = 0; i < selectedAnnotations.length; i++) {
-        var annotation = selectedAnnotations[i];
-        if (annotation && annotation.annotationSettings) {
-            annotation.annotationSettings.isLock = false;
-            pdfviewer.annotationModule.editAnnotation(annotation);
-            args.cancel = false;
+    for (var i = 0; i < pdfviewer.annotationCollection.length; i++) {
+        if (pdfviewer.annotationCollection[i].uniqueKey === pdfviewer.selectedItems.annotations[0].id) {
+            pdfviewer.annotationCollection[i].annotationSettings.isLock = false;
+            pdfviewer.annotationCollection[i].isCommentLock = false;
+            pdfviewer.annotation.editAnnotation(pdfviewer.annotationCollection[i]);
         }
+        args.cancel = false;
     }
 }
 
@@ -158,18 +152,16 @@ function setReadOnlyFalse(args: any) {
 
 let defaultCheckBoxObj: CheckBox = new CheckBox({
     change: contextmenuHelper,
-    cssClass: 'multiline',
+    label: "Hide Default Context Menu"
 });
-defaultCheckBoxObj.appendTo('#hide-default-context-menu');
+defaultCheckBoxObj.appendTo('#hide');
 
 let positionCheckBoxObj: CheckBox = new CheckBox({
     change: contextmenuHelper,
-    cssClass: 'multiline',
+    label: "Add Custom option at bottom"
 });
-positionCheckBoxObj.appendTo('#show-custom-menu-bottom');
+positionCheckBoxObj.appendTo('#toolbar');
 
 function contextmenuHelper(args: ChangeEventArgs): void {
     pdfviewer.addCustomMenu(menuItems, defaultCheckBoxObj.checked, positionCheckBoxObj.checked);
 }
-
-pdfviewer.appendTo('#PdfViewer');
