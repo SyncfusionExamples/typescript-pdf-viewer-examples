@@ -35,6 +35,7 @@
   "dependencies": {
     "@syncfusion/ej2": "*",
     "@syncfusion/ej2-buttons": "*",
-    "@syncfusion/ej2-navigations":"*"
+    "@syncfusion/ej2-navigations":"*",
+    "@syncfusion/ej2-pdfviewer":"*"
   }
 }
