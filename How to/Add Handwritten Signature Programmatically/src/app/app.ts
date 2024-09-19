@@ -5,10 +5,9 @@ pdfviewer.documentPath = "https://cdn.syncfusion.com/content/pdf/pdf-succinctly.
 pdfviewer.resourceUrl = "https://cdn.syncfusion.com/ej2/27.1.48/dist/ej2-pdfviewer-lib";
 pdfviewer.appendTo('#PdfViewer');
 //To add handwritten signature programmatically
-
-let addHandwrittenSignature = document.getElementById('addHandwrittenSignature');
-if (addHandwrittenSignature) {
-    addHandwrittenSignature.addEventListener('click', function () {
+let addSignature = document.getElementById('addHandwrittenSignature');
+if (addSignature) {
+    addSignature.addEventListener('click', function () {
         pdfviewer.annotation.addAnnotation("HandWrittenSignature", {
             offset: { x: 220, y: 180 },
             pageNumber: 1,

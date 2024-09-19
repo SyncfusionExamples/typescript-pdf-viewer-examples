@@ -1,5 +1,3 @@
-require("@syncfusion/ej2-sample-helper-test");
-
 'use strict';
 
 var gulp = require('gulp');
