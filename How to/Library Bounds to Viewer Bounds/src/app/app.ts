@@ -1,3 +1,4 @@
+import { pdf } from '@syncfusion/ej2';
 import { PdfViewer, TextSelection, TextSearch, Print, Navigation, Toolbar, Magnification, Annotation, FormDesigner, FormFields } from '@syncfusion/ej2-pdfviewer';
 
 // Inject required modules
@@ -10,19 +11,6 @@ const pdfviewer: PdfViewer = new PdfViewer({
 
 // Append the PdfViewer to the DOM
 pdfviewer.appendTo('#PdfViewer');
-
-const pageSizes: Array<{ Height: number }> = [];
-
-// Event for AJAX request success
-pdfviewer.ajaxRequestSuccess = (args: { action: string; data: { pageSizes: Array<{ Height: number }> } }) => {
-    if (args.action === 'Load') {
-        const objLength = Object.keys(args.data.pageSizes).length;
-        for (let x = 0; x < objLength; x++) {
-            const pageSize = args.data.pageSizes[x];
-            pageSizes.push(pageSize);
-        }
-    }
-};
 
 // Event for export success
 pdfviewer.exportSuccess = (args: { exportData: string }) => {
@@ -40,15 +28,14 @@ pdfviewer.exportSuccess = (args: { exportData: string }) => {
                 let rect: { x: number; y: number; width: number; height: number } | null = null;
 
                 if (data && data.rect && parseInt(data.rect.width)) {
-                    const pageHeight = pageSizes[parseInt(data.page)].Height;
 
+                    //Get PageSize using getPageInfo API
+                    const pageInfo = pdfviewer.getPageInfo(parseInt(data.page));
+                    const pageHeight: number = pageInfo?.height ?? 0;
                     // Converting PDF Library values into PDF Viewer values. 
                     rect = {
                         x: (parseInt(data.rect.x) * 96) / 72,
-
-                        // Converting pageHeight from pixels(PDF Viewer) to points(PDF Library) for accurate positioning
-                        // The conversion factor of 72/96 is used to change pixel values to points
-                        y: (pageHeight * 72 / 96 - parseInt(data.rect.height)) * 96 / 72,
+                        y: (pageHeight - parseInt(data.rect.height)) * 96 / 72,
                         width: (parseInt(data.rect.width) - parseInt(data.rect.x)) * 96 / 72,
                         height: (parseInt(data.rect.height) - parseInt(data.rect.y)) * 96 / 72,
                     };
@@ -58,11 +45,14 @@ pdfviewer.exportSuccess = (args: { exportData: string }) => {
                     const [startX, startY] = data.start.split(',').map(Number);
                     const [endX, endY] = data.end.split(',').map(Number);
 
-                    const pageHeight = pageSizes[parseInt(data.page)].Height;
+                    //Get PageSize using getPageInfo API
+                    const pageInfo = pdfviewer.getPageInfo(parseInt(data.page));
+                    const pageHeight: number = pageInfo?.height ?? 0;
+
                     const pdfStartX = (startX * 96) / 72;
-                    const pdfStartY = (pageHeight * 72 / 96 - startY) * 96 / 72;
+                    const pdfStartY = (pageHeight - startY) * 96 / 72;
                     const pdfEndX = (endX * 96) / 72;
-                    const pdfEndY = (pageHeight * 72 / 96 - endY) * 96 / 72;
+                    const pdfEndY = (pageHeight - endY) * 96 / 72;
 
                     rect = {
                         x: Math.min(pdfStartX, pdfEndX),
