@@ -12,21 +12,20 @@
 </head>
 
 <body>
-   <!-- custom toolbar -->
+<!-- Search controls -->
     <div class="toolbar">
-        <input  id="txtSearch" type="text" placeholder="Search text" />
-        <label><input type="checkbox" id="chkCase" /> Match case</label>
-        <label><input type="checkbox" id="chkWhole" /> Whole word</label>
+        <input type="text" id="txtSearch" placeholder="Search text…" />
+        <label><input type="checkbox" id="chkMatchCase"> Match Case</label>
+        <label><input type="checkbox" id="chkWholeWord"> Whole Word</label>
 
         <button id="btnSearch">Search</button>
-        <button id="btnPrev">Prev Match</button>
-        <button id="btnNext">Next Match</button>
-
-        <span id="resultInfo"></span>
+        <button id="btnNext">Next</button>
+        <button id="btnPrev">Previous</button>
+        <button id="btnCancel">Cancel</button>
     </div>
 
-    <!-- PDF Viewer host -->
-    <div id="pdfViewer"></div>
+    <!-- PDF Viewer host element -->
+    <div id="PdfViewer"></div>
 
 </body>
 
