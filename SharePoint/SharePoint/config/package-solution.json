@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "pdfviewer-spfx-client-side-solution",
+    "id": "756ebdc3-ddeb-495b-b837-e56bc0ee5c70",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.20.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "pdfviewer-spfx description"
+      },
+      "longDescription": {
+        "default": "pdfviewer-spfx description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "pdfviewer-spfx Feature",
+        "description": "The feature that activates elements of the pdfviewer-spfx solution.",
+        "id": "c3b9ea15-4bf5-4e7d-abe4-2b039c7de9d0",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/pdfviewer-spfx.sppkg"
+  }
+}
