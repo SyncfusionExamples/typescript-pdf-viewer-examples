@@ -1,6 +1,6 @@
-# SharePoint PDF Viewer Web Part
+# SharePoint Multi-Format Document Viewer Web Part
 
-A SharePoint Framework (SPFx) web part that integrates **Syncfusion EJ2 PDF Viewer** for viewing PDF documents stored in SharePoint. This application provides a view-only mode with a user-friendly interface for document selection and navigation.
+A SharePoint Framework (SPFx) web part that integrates **Syncfusion EJ2 Document Viewer** for viewing PDF, Word, and Excel documents stored in SharePoint. This application provides a view-only mode with a user-friendly interface for document selection and navigation.
 
 ## 📦 Installation
 
@@ -21,21 +21,35 @@ A SharePoint Framework (SPFx) web part that integrates **Syncfusion EJ2 PDF View
    npm install
    ```
 
-3. **Configure PDF Source Location**
+3. **Configure Document Source Location**
    Edit `src/webparts/pdfviewer/PdfviewerWebPart.ts`:
    - Replace `YOUR-SHAREPOINT-SITE` with your SharePoint site URL
    - Replace `{your-site-name}` with your site name
-   - Replace `{documents-containing-path}` with the path to your PDF documents folder
+   - Replace `{documents-containing-path}` with the path to your documents folder
 
    ```typescript
    const url = `${targetSite}/_api/web/GetFolderByServerRelativeUrl('/sites/{your-site-name}/{documents-containing-path}')/Files`;
    ```
+   
+   **Supported File Types**: 
+   - PDF
+   - Word
+   - Excel
 
-4. **Configure Resource URL** (Optional)
-   Update the `resourceUrl` in the PDF Viewer initialization:
+4. **Configure Default Document** (Optional)
+   Update the `documentPath` in the Document Viewer initialization:
+   ```typescript
+   documentPath: '{Default-Document-Location-of-Sharepoint}'
+   ```
+   Replace `{Default-Document-Location-of-Sharepoint}` with the URL string of your default document to load on initialization.
+
+5. **Configure Resource URL** (Optional)
+   Update the `resourceUrl` in the Document Viewer initialization:
    ```typescript
    resourceUrl: '${YOUR-LOCATION-FOR-RESOURCE}/ej2-pdfviewer-lib'
    ```
+   
+   **File Conversion**: Non-PDF documents (Word, Excel) are automatically converted to PDF format using Syncfusion's conversion service before displaying in the viewer.
 
 ## Run the application
 
@@ -56,8 +70,8 @@ The sample will be hosted in `https://{tenantDomain}/_layouts/workbench.aspx`.
 3. Click **+ Add a new web part**
 4. Search for **"pdfviewer"** (labeled as "Advanced" category)
 5. Click to add the web part
-6. The web part will load available PDF documents from the configured location
-7. Use the dropdown menu to select a PDF document
+6. The web part will load available documents (PDF, Word, Excel) from the configured location
+7. Use the dropdown menu to select a document
 8. The selected document will load in the viewer
 
 ### Web Part Configuration
@@ -70,7 +84,7 @@ The sample will be hosted in `https://{tenantDomain}/_layouts/workbench.aspx`.
 ### Toolbar Options (View-Only Mode)
 
 The toolbar displays the following tools:
-- **Open Option**: Load a different document
+- **Open Option**: Upload and load a different document
 - **Page Navigation Tool**: Jump to specific pages
 - **Magnification Tool**: Zoom controls
 - **Pan Tool**: Navigate large pages
@@ -87,12 +101,14 @@ viewer.formDesignerModule.updateFormField(viewer.formFieldCollections[x], {
 ```
 
 ### Disabled Features
-- Annotations and sticky notes
+- Annotation toolbar
+- Sticky notes annotation
 - Page organizer
-- Context menu interactions
-- Direct form field editing
+- Context menu
+- Form field editing (all fields are read-only)
 
 ## 🔗 Resources
 
-- [Syncfusion Javascript PDF Viewer](https://www.syncfusion.com/pdf-viewer-sdk/javascript-pdf-viewer)
+- [Syncfusion Document Editor](https://www.syncfusion.com/javascript-ui-controls/document-editor)
+- [Syncfusion PDF Viewer](https://www.syncfusion.com/pdf-viewer-sdk/javascript-pdf-viewer)
 - [Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/react/depoyment-integration/share-point)
