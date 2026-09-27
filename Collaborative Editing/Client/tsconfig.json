@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "module": "ESNext",
+        "lib": [
+            "ES2015",
+            "DOM"
+        ],
+        "jsx": "react",
+        "declaration": false,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "strict": false,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "sourceMap": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

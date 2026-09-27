@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Syncfusion TypeScript PDF Viewer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Syncfusion JavaScript PDF Viewer sample" />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="resources/favicon.ico" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Control Panel -->
+    <div id="controlPanel"
+        style="display: flex; gap: 8px; padding: 12px; background-color: #f5f5f5; border-bottom: 1px solid #ddd; flex-wrap: wrap; align-items: center;">
+    </div>
+
+    <!-- PDF Viewers Container -->
+    <div style="display: flex; height: calc(100vh - 45px); width: 100%;">
+        <!-- Viewer 1 - Original Document -->
+        <div id="pdfViewer1" style="width: 50%; height: 100%; border-right: 1px solid #ccc;"></div>
+
+        <!-- Viewer 2 - Modified Document -->
+        <div id="pdfViewer2" style="width: 50%; height: 100%;"></div>
+    </div>
+
+    <style>
+        .btn-primary,
+        .btn-success,
+        .btn-warning,
+        .btn-danger,
+        .btn-info,
+        .btn-secondary {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-info {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-primary:hover,
+        .btn-success:hover,
+        .btn-warning:hover,
+        .btn-danger:hover,
+        .btn-info:hover,
+        .btn-secondary:hover {
+            opacity: 0.8;
+        }
+
+        .separator {
+            width: 1px;
+            height: 24px;
+            background-color: #ccc;
+            margin: 0 8px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        html {
+            height: 100%;
+        }
+    </style>
+</body>
+
+</html>
