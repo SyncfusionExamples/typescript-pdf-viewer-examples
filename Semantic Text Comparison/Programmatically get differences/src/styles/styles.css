@@ -1,0 +1,57 @@
+@import '../../node_modules/@syncfusion/ej2-tailwind3-theme/styles/pdfviewer/index.css';
+
+/* PDF Viewer Styles */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#collaboration-status {
+    flex-shrink: 0;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#PdfViewer {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Bootstrap overrides if needed */
+.container-fluid {
+    padding: 0;
+}
+
+/* Status indicator colors */
+.status-connected {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.status-loading {
+    color: #ffc107;
+    font-weight: bold;
+}
