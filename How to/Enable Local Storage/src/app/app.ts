@@ -1,4 +1,4 @@
-import { pdf } from '@syncfusion/ej2';
+//import { pdf } from '@syncfusion/ej2';
 import { PdfViewer, TextSelection, TextSearch, Print, Navigation, Toolbar, Magnification, Annotation, FormDesigner, FormFields, PageInfoModel } from '@syncfusion/ej2-pdfviewer';
 
 // Inject required modules
