@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cloud Border and Dashed Border - TypeScript PDF Viewer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Essential JS 2" />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="resources/favicon.ico" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+<!-- Toolbar actions -->
+<div class="toolbar-actions">
+    <div class="action-group">
+        <h4>Set annotation mode for newly added annotations</h4>
+        <button id="btnRectangleMode">Rectangle</button>
+        <button id="btnCircleMode">Circle</button>
+        <button id="btnPolygonMode">Polygon</button>
+        <button id="btnFreeTextMode">Free Text</button>
+        <button id="btnAreaMode">Area</button>
+        <button id="btnLineMode">Line</button>
+    </div>
+
+    <div class="action-group">
+        <h4>Exit annotation mode</h4>
+        <button id="btnExitMode">Exit Annotation Mode</button>
+    </div>
+
+    <div class="action-group">
+        <h4>Add annotations programmatically</h4>
+        <button id="btnCloudRectangle">Cloud Rectangle</button>
+        <button id="btnDashedCircle">Dashed Circle</button>
+        <button id="btnCloudFreeText">Cloud Free Text</button>
+        <button id="btnDashedLine">Dashed Line</button>
+        <button id="btnCloudArea">Cloud Area</button>
+        <button id="btnDashedRadius">Dashed Radius</button>
+    </div>
+
+    <div class="action-group">
+        <h4>Modify existing annotation border</h4>
+        <button id="btnApplyCloudBorder">Apply Cloud Border</button>
+        <button id="btnApplyDashedBorder">Apply Dashed Border</button>
+        <button id="btnResetBorder">Reset To Solid</button>
+    </div>
+</div>
+
+<!-- Container -->
+<div id="PdfViewer" style="height: 650px;"></div>
+
+</body>
+
+</html>
