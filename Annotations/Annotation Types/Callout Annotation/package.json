@@ -18,22 +18,22 @@
   "devDependencies": {
     "ajv": "^8.11.2",
     "browser-sync": "^2.18.12",
+    "css-loader": "^6.7.2",
     "gulp": "*",
-    "typescript": "*",
     "gulp-protractor": "*",
     "gulp-typescript": "*",
-    "jasmine": "^2.6.0",
-    "css-loader": "^6.7.2",
-    "ts-loader": "^9.4.1",
-    "mini-css-extract-plugin": "^2.7.0",
     "html-webpack-plugin": "^5.5.0",
+    "jasmine": "^2.6.0",
+    "mini-css-extract-plugin": "^2.7.0",
+    "ts-loader": "^9.4.1",
+    "typescript": "^5.4.5",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0",
     "webpack-dev-server": "^5.2.1",
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
-    "@syncfusion/ej2-tailwind3-theme": "*",
-    "@syncfusion/ej2": "*"
+    "@syncfusion/ej2": "*",
+    "@syncfusion/ej2-tailwind3-theme": "*"
   }
 }

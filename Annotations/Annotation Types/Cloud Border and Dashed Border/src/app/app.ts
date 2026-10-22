@@ -13,7 +13,7 @@ PdfViewer.Inject(
 
 // Create the viewer with default border settings for various annotations
 const pdfviewer: PdfViewer = new PdfViewer({
-  documentPath: window.location.origin + '/blank.pdf',
+  documentPath: 'https://cdn.syncfusion.com/content/pdf/annotations-v2.pdf',
   resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib',
   rectangleSettings: {
     strokeColor: '#d32f2f',

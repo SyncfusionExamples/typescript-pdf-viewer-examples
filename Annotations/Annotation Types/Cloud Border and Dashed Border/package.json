@@ -19,7 +19,7 @@
     "ajv": "^8.11.2",
     "browser-sync": "^2.18.12",
     "gulp": "*",
-    "typescript": "*",
+    "typescript": "5.4.5",
     "gulp-protractor": "*",
     "gulp-typescript": "*",
     "jasmine": "^2.6.0",
@@ -34,6 +34,6 @@
   },
   "dependencies": {
     "@syncfusion/ej2-tailwind3-theme": "*",
-    "@syncfusion/ej2": "*"
+    "@syncfusion/ej2-pdfviewer": "*"
   }
 }
