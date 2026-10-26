@@ -10,7 +10,8 @@ import { PdfViewerAdapter } from './pdfViewerAdapter';
 // Available user list for demo purposes
 const userList = ['RIO', 'JOHN', 'MAXY', 'SHAI', 'SRI'];
 const currentUserName = userList[Math.floor(Math.random() * userList.length)];
-const SERVICE_URL = 'http://localhost:8081/';
+//REPLACE THIS WITH SERVICE URL CURRENTLY RUNNING
+const SERVICE_URL = 'https://localhost:5001/';
 
 // ============================================================
 // Collaboration State Management
@@ -44,11 +45,18 @@ PdfViewer.Inject(Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkVie
 
 let pdfViewer: PdfViewer = new PdfViewer({
     enableCollaborativeEditing: true,
-    resourceUrl: 'https://cdn.syncfusion.com/ej2/34.1.29/dist/ej2-pdfviewer-lib'
+    resourceUrl: 'https://cdn.syncfusion.com/ej2/34.1.29/dist/ej2-pdfviewer-lib',
+    documentLoad: documentLoad
 });
 
 pdfViewer.appendTo('#PdfViewer');
-
+/**
+   * Applies pending operations to the document after it has been loaded.
+   * This handles applying initial state snapshots (annotations, form fields, page organizer).
+   */
+function documentLoad() {
+    collaborationState.adapter.updatePendingOperations();
+};
 // ============================================================
 // Helper Functions - PDF Fetch and Load
 // ============================================================
@@ -235,7 +243,10 @@ pdfViewer.resourcesLoaded = async function (): Promise<void> {
                     // Step 2: Create and configure CollaborationClient
                     const client = new CollaborationClient(adapter, {
                         serviceUrl: SERVICE_URL,
-                        connectionType: 'websocket',
+                        // USE BELOW IF YOU USE NODE JS WEB SERVICE
+                        //connectionType: 'websocket',
+                        // USE BELOW IF YOU USE CORE WEB SERVICE
+                        connectionType: 'signalr',
                         currentUser: collaborationState.currentUser,
                         onUserJoined: (user: any) => {
                             console.log('[App] User joined collaboration:', user);
