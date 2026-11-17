@@ -1,22 +1,24 @@
-# Callout Annotation in TypeScript PDF Viewer
+# Freehand Highlight Annotation in TypeScript PDF Viewer
 
-This sample demonstrates how to enable, add, customize, and manage **Callout annotations** in the TypeScript PDF Viewer using the Syncfusion EJ2 PDF Viewer component. Callout annotations let users place an editable text box on a PDF page and connect it to a target point with one or more callout leader lines — ideal for review notes, labels, and call-outs that reference specific areas of a document without altering the original content.
+This sample demonstrates how to enable, configure, and manage **Freehand Highlight annotations** in the TypeScript PDF Viewer using the Syncfusion EJ2 PDF Viewer component. Freehand Highlight annotations allow users to draw freehand strokes that behave as text highlights, making it easy to mark important content, review documents, and provide visual feedback with a natural pen\-like experience.
 
 ## What is covered
 
-- Enabling Callout annotations in the PDF Viewer (injecting `Annotation` and `Toolbar` modules).
-- Switching to Callout Annotation mode programmatically (`setAnnotationMode('Callout')`).
-- Exiting Callout Annotation mode (`setAnnotationMode('None')`).
-- Adding a Callout annotation programmatically with `addAnnotation('Callout', { ... })`, including:
-  - `offset`, `pageNumber`
-  - `calloutLines` (the ordered leader-line path)
-  - `lineEndingStyle`, `borderColor`, `borderWidth`, `borderStyle`
-  - `opacity`, `author`
-- Editing an existing Callout annotation programmatically (`editAnnotation(annotation)`) with updated bounds, text, author, fill/stroke colors, and text alignment.
+- Enabling Freehand Highlight support dynamically using the `enableFreehandHighlight` property.
+- Dynamically adding and removing the **Freehand Highlight** tool from the annotation toolbar.
+- Adding a Freehand Highlight annotation programmatically using `addAnnotation('Ink', { ... })`.
+- Configuring an Ink annotation as a Freehand Highlight using the `enableInkHighlight` property.
+- Customizing annotation properties such as: 
+    - `offset`
+    - `pageNumber`
+    - `width`
+    - `height`
+    - `path`
+- Removing an existing Freehand Highlight annotation programmatically using `deleteAnnotationById()`.
 
 ## Getting Started
 
-```
+```Shell
 npm install
 ```
 
@@ -24,12 +26,14 @@ npm install
 
 The application is configured with `webpack-dev-server`, so it will serve the web application in your default browser.
 
-```
-npm run start
+```Shell
+npm start
 ```
 
 ## Learn more
 
-Refer to the Syncfusion UG documentation for the TypeScript PDF Viewer Callout Annotation feature:
+Refer to the Syncfusion UG documentation for the TypeScript PDF Viewer Freehand Highlight Annotation feature:
 
-`https://help.syncfusion.com/document-processing/pdf/pdf-viewer/typescript/getting-started` (UG section: Callout Annotation in TypeScript PDF Viewer)
+[Getting Started](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/javascript-es6/getting-started)
+
+(UG section: **Freehand Highlight Annotation in TypeScript PDF Viewer**)
